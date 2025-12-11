@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
+import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { ConfigProvider } from 'antd';
+import theme from '@/theme/themeConfig';
 
 export const metadata: Metadata = {
   title: "My Blog",
@@ -15,10 +18,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
-        <Navigation />
-        <main className="pt-16 min-h-screen">
-          {children}
-        </main>
+        <AntdRegistry>
+          <ConfigProvider theme={theme}>
+            <Navigation />
+            <main className="pt-16 min-h-screen">
+              {children}
+            </main>
+          </ConfigProvider>
+        </AntdRegistry>
       </body>
     </html>
   );

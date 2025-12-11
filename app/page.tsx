@@ -1,66 +1,63 @@
+'use client';
 import Link from 'next/link';
+import { Button, Card, Typography, Space, Flex } from 'antd';
+import { UserOutlined, FolderOutlined, MailOutlined } from '@ant-design/icons';
+
+const { Title, Paragraph } = Typography;
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center space-y-8">
-          <div className="space-y-4">
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white tracking-tight">
+        <Space direction="vertical" size="large" align="center" style={{ width: '100%' }}>
+          <div style={{ textAlign: 'center' }}>
+            <Title level={1} style={{ fontSize: '64px', marginBottom: '16px' }}>
               Welcome to My Blog
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            </Title>
+            <Paragraph style={{ fontSize: '24px', maxWidth: '600px' }}>
               A place where I share my thoughts, projects, and experiences
-            </p>
+            </Paragraph>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-            <Link
-              href="/introduction"
-              className="px-8 py-3 bg-gray-900 text-white dark:bg-white dark:text-gray-900 rounded-lg font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-            >
+          <Space size="middle" wrap>
+            <Button type="primary" size="large" href="/introduction">
               Learn More About Me
-            </Link>
-            <Link
-              href="/projects"
-              className="px-8 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-2 border-gray-900 dark:border-white rounded-lg font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-            >
+            </Button>
+            <Button size="large" href="/projects">
               View My Projects
-            </Link>
-          </div>
+            </Button>
+          </Space>
 
-          <div className="grid md:grid-cols-3 gap-8 mt-20">
-            <div className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-200">
-              <div className="text-4xl mb-4">👋</div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                Introduction
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Get to know me, my background, and my journey
-              </p>
-            </div>
-
-            <div className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-200">
-              <div className="text-4xl mb-4">💼</div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                Projects
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Explore my portfolio of work and creative projects
-              </p>
-            </div>
-
-            <div className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-200">
-              <div className="text-4xl mb-4">📧</div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                Contact
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Let's connect and collaborate on exciting opportunities
-              </p>
-            </div>
-          </div>
-        </div>
+          <Flex gap={24} wrap="wrap" justify="center" style={{ marginTop: '80px', width: '100%' }}>
+            <Card hoverable className="shadow-md" style={{ flex: '1 1 300px', maxWidth: '400px' }}>
+              <Space direction="vertical" align="center" style={{ width: '100%', textAlign: 'center' }}>
+                <UserOutlined style={{ fontSize: '48px', color: '#22c55e' }} />
+                <Title level={3}>Introduction</Title>
+                <Paragraph>
+                  Get to know me, my background, and my journey
+                </Paragraph>
+              </Space>
+            </Card>
+            <Card hoverable className="shadow-md" style={{ flex: '1 1 300px', maxWidth: '400px' }}>
+              <Space direction="vertical" align="center" style={{ width: '100%', textAlign: 'center' }}>
+                <FolderOutlined style={{ fontSize: '48px', color: '#22c55e' }} />
+                <Title level={3}>Projects</Title>
+                <Paragraph>
+                  Explore my portfolio of work and creative projects
+                </Paragraph>
+              </Space>
+            </Card>
+            <Card hoverable className="shadow-md" style={{ flex: '1 1 300px', maxWidth: '400px' }}>
+              <Space direction="vertical" align="center" style={{ width: '100%', textAlign: 'center' }}>
+                <MailOutlined style={{ fontSize: '48px', color: '#22c55e' }} />
+                <Title level={3}>Contact</Title>
+                <Paragraph>
+                  Let&apos;s connect and collaborate on exciting opportunities
+                </Paragraph>
+              </Space>
+            </Card>
+          </Flex>
+        </Space>
       </div>
     </div>
   );
