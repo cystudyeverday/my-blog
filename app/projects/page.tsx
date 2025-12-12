@@ -2,28 +2,48 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Card, List, Tag, Badge, Typography, Space, Divider } from 'antd';
+import { Card, List, Tag, Badge, Typography, Space, Divider, Alert } from 'antd';
 
 const { Title, Paragraph, Text } = Typography;
 
 // Project Image Component with error handling
 function ProjectImage({ src, alt }: { src: string; alt: string }) {
-  const [imgSrc, setImgSrc] = useState(src);
   const [hasError, setHasError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Reset error state when src changes
+    setHasError(false);
+    setIsLoading(true);
+  }, [src]);
 
   return (
-    <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-xl transition-shadow duration-300 group bg-gray-100 dark:bg-gray-700">
+    <div className="relative w-full aspect-video min-h-[200px] rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-xl transition-shadow duration-300 group bg-gray-100 dark:bg-gray-700">
       {!hasError ? (
-        <Image
-          src={imgSrc}
-          alt={alt}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform duration-300"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          onError={() => setHasError(true)}
-        />
+        <>
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            onError={() => {
+              console.error(`Failed to load image: ${src}`);
+              setHasError(true);
+              setIsLoading(false);
+            }}
+            onLoadingComplete={() => {
+              setIsLoading(false);
+            }}
+          />
+          {isLoading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-gray-100 dark:bg-gray-700 z-10">
+              <div className="animate-pulse text-gray-400 text-sm">Loading...</div>
+            </div>
+          )}
+        </>
       ) : (
-        <div className="w-full h-full flex items-center justify-center">
+        <div className="absolute inset-0 w-full h-full flex items-center justify-center">
           <div className="text-center p-4">
             <div className="text-4xl mb-2">📷</div>
             <p className="text-sm text-gray-500 dark:text-gray-400">Image not available</p>
@@ -44,103 +64,94 @@ export default function Projects() {
 
   const projects = [
     {
-      title: 'Housing Authority - AI Lift',
-      description: 'Designed a Google Maps-based component to visualize estates with markers, clustering, and filtering. Migrated the project from React to Next.js, optimizing performance and deployment.',
+      title: 'Authority Institution - AI Lift',
+      description: 'Designed and developed a Google Maps-based visualization component to display estates with interactive markers, intelligent clustering, and advanced filtering capabilities. Successfully migrated the project from a React single-page application to Next.js 14, significantly optimizing performance and streamlining deployment processes.',
       tech: ['Google Maps', 'React', 'Next.js', 'TypeScript', 'Zustand'],
       status: 'Completed',
-      period: 'Aug 2023 - Present',
-      images: ['/projects/housing-authority-1.jpg', '/projects/housing-authority-2.jpg'],
+      period: 'Jan 2025 - Present',
+      images: ['/projects/housing-authority-1.png'],
+      showMockDataNotice: true,
       responsibilities: [
-        'Designed Google Maps-based visualization component',
-        'Implemented markers, clustering, and filtering features',
-        'Migrated React SPA to Next.js 14 (App Router)',
-        'Optimized building performance and deployment'
+        'Designed and developed Google Maps-based visualization component with interactive features',
+        'Implemented advanced markers, intelligent clustering, and comprehensive filtering capabilities',
+        'Migrated React SPA to Next.js 14 (App Router) architecture',
+        'Optimized application performance and streamlined deployment processes'
       ],
     },
     {
-      title: 'BOC & OCBC - Compliance Check Platform',
-      description: 'Developed dashboards with multi-type charts, tables, and user interaction features. Implemented role-based access control (RBAC) and real-time data updates via WebSocket.',
+      title: 'Bank & Finance - Compliance Check Platform',
+      description: 'Developed comprehensive dashboards featuring diverse chart types, interactive data tables, and rich user interaction capabilities. Implemented robust role-based access control (RBAC) and real-time data synchronization via WebSocket connections to ensure up-to-date information delivery.',
       tech: ['React', 'TypeScript', 'Charts', 'Tables', 'RBAC', 'WebSocket'],
       status: 'Completed',
-      period: 'Aug 2023 - Present',
-      images: ['/projects/compliance-platform-1.jpg'],
+      period: 'Aug 2024 - Aug 2025',
+      // images: ['/projects/compliance-platform-1.jpg'],
       responsibilities: [
-        'Developed interactive dashboards with multiple chart types',
-        'Implemented role-based access control (RBAC)',
-        'Built real-time data updates using WebSocket',
-        'Created user interaction features and data tables'
+        'Developed interactive dashboards with multiple chart types and data visualization',
+        'Implemented comprehensive role-based authorization control (RBAC) system',
+        'Built real-time data synchronization using WebSocket technology',
+        'Created intuitive user interaction features and responsive data tables'
       ],
     },
     {
-      title: 'ICAC - Case Analysis Platform',
-      description: 'Built the system part and integrated with teams\' AI generated component. Built the knowledge graph component for user to interact with entity relations.',
+      title: 'Authority Institution - Case Analysis Platform',
+      description: 'Architected and developed core system components, seamlessly integrating with AI-generated modules from cross-functional teams. Designed and built an interactive knowledge graph component enabling users to explore and analyze complex entity relationships through intuitive visualizations.',
       tech: ['React', 'TypeScript', 'AI', 'Knowledge Graph', 'Next.js'],
       status: 'Completed',
-      period: 'Aug 2023 - Present',
-      images: ['/projects/icac-platform-1.jpg', '/projects/icac-platform-2.jpg'],
+      period: 'Aug 2024 - Aug 2025',
+      images: ['/projects/case-analysis-1.png', '/projects/case-analysis-2.png'],
+      showMockDataNotice: true,
       responsibilities: [
-        'Built core system components',
-        'Integrated with AI-generated components',
-        'Developed knowledge graph visualization',
-        'Implemented entity relationship interactions'
+        'Designed comprehensive user flows and interaction patterns',
+        'Architected and built core system components and infrastructure',
+        'Integrated seamlessly with AI-generated components from cross-functional teams',
+        'Developed interactive knowledge graph visualization system',
+        'Implemented advanced entity relationship interaction capabilities'
       ],
     },
     {
-      title: 'ESG Data Analytics Platform',
-      description: 'Architected and built the core analytics dashboard from Figma to production, using BizCharts for interactive data visualization. Transformed complex ESG datasets into intuitive charts for trend analysis and decision-making.',
+      title: 'Bank & Finance - ESG Data Analytics Platform',
+      description: 'Architected and developed the core analytics dashboard from initial Figma designs to production-ready application, leveraging BizCharts for sophisticated interactive data visualization. Successfully transformed complex ESG datasets into intuitive, actionable charts that enable comprehensive trend analysis and informed decision-making.',
       tech: ['React', 'TypeScript', 'BizCharts', 'Figma', 'ESG Data', 'Data Visualization'],
       status: 'Completed',
-      period: 'Oct 2020 - July 2023',
-      images: ['/projects/esg-platform-1.jpg'],
+      period: 'Oct 2022 - July 2023',
+      images: ['/projects/esg-1.png', '/projects/esg-2.png'],
+      showMockDataNotice: true,
       responsibilities: [
-        'Architected and built core analytics dashboard',
-        'Transformed Figma designs to production',
-        'Implemented interactive data visualization with BizCharts',
-        'Converted complex ESG datasets into intuitive charts'
-      ],
-    },
-    {
-      title: 'CCAS Platform',
-      description: 'Front-end module development. Managing notification lifecycle including creation, delivery, display, and dismissal. Created comprehensive project test plan covering the Notification Module and the entire system.',
-      tech: ['React', 'TypeScript', 'Front-end', 'Testing', 'Documentation'],
-      status: 'Completed',
-      period: 'Oct 2020 - July 2023',
-      images: ['/projects/ccas-platform-1.jpg'],
-      responsibilities: [
-        'Developed front-end modules',
-        'Managed notification lifecycle (creation, delivery, display, dismissal)',
-        'Created comprehensive test plan for Notification Module',
-        'Documented test cases, expected results, and testing methodologies'
+        'Designed system architecture aligned with user requirements and business objectives',
+        'Architected and built core analytics dashboard from ground up',
+        'Transformed Figma design mockups into fully functional production application',
+        'Implemented sophisticated interactive data visualization using BizCharts',
+        'Converted complex ESG datasets into intuitive, actionable visualizations'
       ],
     },
     {
       title: 'Green Hotel Training Game',
-      description: 'A training game designed for hotel staff. Responsible for game design and user survey, game programming using Unity, and web development using Ali Cloud to save user information and construct the backend of the game.',
+      description: 'Developed an educational training game designed specifically for hotel staff to enhance their environmental awareness and operational skills. Contributed to game design, conducted user research and surveys, implemented game mechanics using Unity, and developed the web infrastructure using Alibaba Cloud to manage user data and construct the backend services.',
       tech: ['Unity', 'C#', 'Node.js', 'Ali Cloud', 'Web Development'],
       status: 'Completed',
       period: '2019.03 - 2019.07',
-      images: ['/projects/green-hotel-1.jpg'],
+      images: ['/projects/game-1.png', '/projects/game-2.png'],
       responsibilities: [
-        'Part of game design and user survey',
-        'Game programming by Unity',
-        'Web development using Ali Cloud',
-        'Backend construction'
+        'Contributed to game design and conducted comprehensive user research and surveys',
+        'Developed game mechanics and interactive features using Unity and C#',
+        'Built web infrastructure and services using Alibaba Cloud platform',
+        'Architected and constructed backend systems for user data management'
       ],
     },
     {
       title: 'Multidimensional Data Visualization Technology Based on Pen Interaction',
-      description: 'An innovative Android application that realizes multi-dimensional data visualization through pen interaction. Based on the Android platform, using one-dollar algorithm, human-computer interaction model and jBox2D physics engine. Main functions include gesture recognition, data import, data filtering and coordinate conversion.',
+      description: 'Developed an innovative Android application enabling multi-dimensional data visualization through intuitive pen-based interactions. Built on the Android platform, incorporating advanced algorithms including the one-dollar gesture recognition algorithm, sophisticated human-computer interaction models, and the jBox2D physics engine. Core functionalities include intelligent gesture recognition, seamless data import, advanced filtering capabilities, and precise coordinate transformation.',
       tech: ['Android', 'Java', 'jBox2D', 'Algorithm Design', 'HCI'],
       status: 'Completed',
       period: '2018.01 - 2018.06',
-      images: ['/projects/data-visualization-1.jpg'],
+      images: ['/projects/dv-1.png'],
       responsibilities: [
-        'Algorithm research and implementation',
-        'Gesture recognition development',
-        'Data visualization system design',
-        'Physics engine integration'
+        'Conducted algorithm research and implemented advanced gesture recognition algorithms',
+        'Developed sophisticated gesture recognition and interpretation systems',
+        'Designed comprehensive data visualization system architecture',
+        'Integrated jBox2D physics engine for realistic interaction simulation'
       ],
-      achievement: 'Obtained the qualification of excellent papers at the college level',
+      achievement: 'Received recognition for excellent academic paper at the college level',
     },
   ];
 
@@ -157,7 +168,7 @@ export default function Projects() {
                 Projects
               </h1>
               <p className="text-base md:text-lg text-gray-600 dark:text-gray-300">
-                Select a project to view details
+                Explore my portfolio of professional projects and technical achievements
               </p>
             </div>
           </div>
@@ -233,6 +244,17 @@ export default function Projects() {
                     {selectedProject.images && selectedProject.images.length > 0 && (
                       <div>
                         <Title level={4}>Project Screenshots</Title>
+                        {selectedProject.showMockDataNotice && (
+                          <Alert
+                            message="Privacy Notice"
+                            description="The screenshots displayed use mock data and design elements to protect the confidentiality of the actual products and client information."
+                            type="info"
+                            showIcon
+                            closable
+                            style={{ marginBottom: '16px' }}
+                            className="dark:bg-blue-900/20 dark:border-blue-800"
+                          />
+                        )}
                         <div className={`grid gap-4 ${selectedProject.images.length === 1
                           ? 'grid-cols-1'
                           : selectedProject.images.length === 2
