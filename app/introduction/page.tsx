@@ -13,7 +13,7 @@ export default function Introduction() {
           <div style={{ textAlign: 'center' }}>
             <Title level={1}>Introduction</Title>
             <Paragraph style={{ fontSize: '20px' }}>
-              A little about myself
+              Professional Overview
             </Paragraph>
           </div>
 
@@ -22,9 +22,12 @@ export default function Introduction() {
               <div>
                 <Title level={2}>About Me</Title>
                 <Paragraph style={{ fontSize: '16px', lineHeight: '1.75' }}>
-                  Hello! I&apos;m a passionate developer and creative thinker who loves building
-                  meaningful digital experiences. With a background in web development and
-                  a keen eye for design, I enjoy bringing ideas to life through code.
+                  I am a dedicated software developer and technical professional specializing in 
+                  creating impactful digital solutions. With <strong>5 years of experience in frontend 
+                  development</strong> and extensive expertise in modern web technologies, I bring a 
+                  strong foundation in user experience design and technical excellence to every project. 
+                  I transform conceptual ideas into robust, user-centric applications that deliver 
+                  measurable business value.
                 </Paragraph>
               </div>
 
@@ -46,10 +49,11 @@ export default function Introduction() {
               <div>
                 {/* <Title level={2}>Interests</Title> */}
                 <Paragraph style={{ fontSize: '16px', lineHeight: '1.75' }}>
-                  When I&apos;m not coding, I enjoy exploring new technologies, reading about
-                  design trends, and contributing to open-source projects. I believe in
-                  continuous learning and staying curious about the ever-evolving world of
-                  technology.
+                  Beyond my core development work, I actively pursue professional growth through 
+                  continuous learning, exploring emerging technologies, and staying current with 
+                  industry best practices. I am committed to contributing to the open-source 
+                  community and believe in the importance of knowledge sharing to drive innovation 
+                  in the technology landscape.
                 </Paragraph>
               </div>
             </Space>
