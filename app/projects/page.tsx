@@ -64,14 +64,28 @@ export default function Projects() {
 
   const projects = [
     {
+      title: 'AI Chatbot',
+      description: 'Developed a AI Chatbot using Next.js, TypeScript',
+      tech: ['Next.js', 'TypeScript', 'Steaming API'],
+      status: 'Completed',
+      period: 'Dec 2025 - Present',
+      images: ['/projects/ai-chatbot-1.jpg'],
+      showMockDataNotice: true,
+      responsibilities: [
+        'Implemented a chat interface with real-time messaging and response generation',
+        'Integrated the Streaming API for chat streaming',
+        'Document reference and document presentation'
+      ],
+    },
+    {
       title: 'Authority Institution - AI Lift',
       description: 'Designed and developed a Google Maps-based visualization component to display estates with interactive markers, intelligent clustering, and advanced filtering capabilities. Successfully migrated the project from a React single-page application to Next.js 14, significantly optimizing performance and streamlining deployment processes.',
       projectDescription: (
         <>
-          This intelligent lift management system provides <strong>real-time monitoring</strong> of lift operational status 
-          across multiple facilities. Leveraging advanced machine learning algorithms, the platform analyzes lift parameters 
-          to perform <strong>predictive maintenance</strong>, enabling proactive notifications to inform users well in advance 
-          of potential breakdowns. By combining real-time data processing with predictive analytics, the system significantly 
+          This intelligent lift management system provides <strong>real-time monitoring</strong> of lift operational status
+          across multiple facilities. Leveraging advanced machine learning algorithms, the platform analyzes lift parameters
+          to perform <strong>predictive maintenance</strong>, enabling proactive notifications to inform users well in advance
+          of potential breakdowns. By combining real-time data processing with predictive analytics, the system significantly
           reduces downtime and enhances operational efficiency.
         </>
       ),
@@ -92,10 +106,10 @@ export default function Projects() {
       description: 'Developed comprehensive dashboards featuring diverse chart types, interactive data tables, and rich user interaction capabilities. Implemented robust role-based access control (RBAC) and real-time data synchronization via WebSocket connections to ensure up-to-date information delivery.',
       projectDescription: (
         <>
-          A comprehensive compliance management platform that seamlessly <strong>integrates with internal human resource 
-          structures</strong>, enabling efficient task assignment and delegation workflows. The system allows administrators 
-          to <strong>assign and unassign tasks to subusers</strong> based on organizational hierarchies, ensuring proper 
-          workflow distribution. Additionally, the platform performs <strong>automated analysis of public documents</strong> 
+          A comprehensive compliance management platform that seamlessly <strong>integrates with internal human resource
+            structures</strong>, enabling efficient task assignment and delegation workflows. The system allows administrators
+          to <strong>assign and unassign tasks to subusers</strong> based on organizational hierarchies, ensuring proper
+          workflow distribution. Additionally, the platform performs <strong>automated analysis of public documents</strong>
           and conducts <strong>internal compliance checks</strong> to ensure regulatory adherence and mitigate potential risks.
         </>
       ),
@@ -115,15 +129,15 @@ export default function Projects() {
       description: 'Architected and developed core system components, seamlessly integrating with AI-generated modules from cross-functional teams. Designed and built an interactive knowledge graph component enabling users to explore and analyze complex entity relationships through intuitive visualizations.',
       projectDescription: (
         <>
-          An advanced analytical platform designed to process and synthesize <strong>multiple types of data</strong> from 
-          diverse sources. The system employs sophisticated algorithms to automatically <strong>generate Entity-Relationship 
-          (ER) graphs</strong>, providing users with comprehensive visual representations of complex data relationships. 
-          Through <strong>interactive exploration capabilities</strong>, users can dynamically navigate the graph structure 
-          to uncover hidden patterns, identify connections, and extract actionable insights that drive informed 
+          An advanced analytical platform designed to process and synthesize <strong>multiple types of data</strong> from
+          diverse sources. The system employs sophisticated algorithms to automatically <strong>generate Entity-Relationship
+            (ER) graphs</strong>, providing users with comprehensive visual representations of complex data relationships.
+          Through <strong>interactive exploration capabilities</strong>, users can dynamically navigate the graph structure
+          to uncover hidden patterns, identify connections, and extract actionable insights that drive informed
           decision-making.
         </>
       ),
-      tech: ['React', 'TypeScript', 'AI', 'Knowledge Graph', 'Next.js'],
+      tech: ['React', 'TypeScript', 'antv/g6', 'Next.js'],
       status: 'Completed',
       period: 'Aug 2024 - Aug 2025',
       images: ['/projects/case-analysis-1.png', '/projects/case-analysis-2.png'],
@@ -141,11 +155,11 @@ export default function Projects() {
       description: 'Architected and developed the core analytics dashboard from initial Figma designs to production-ready application, leveraging BizCharts for sophisticated interactive data visualization. Successfully transformed complex ESG datasets into intuitive, actionable charts that enable comprehensive trend analysis and informed decision-making.',
       projectDescription: (
         <>
-          A specialized analytics platform focused on <strong>Environmental, Social, and Governance (ESG) data analysis</strong> 
-          for financial institutions. The system aggregates and processes comprehensive ESG metrics from corporate entities, 
-          providing deep insights into their sustainability practices, social impact, and governance structures. Through 
-          advanced data processing capabilities, the platform performs thorough <strong>compliance checks</strong> against 
-          regulatory standards and industry benchmarks, enabling stakeholders to make informed investment decisions and 
+          A specialized analytics platform focused on <strong>Environmental, Social, and Governance (ESG) data analysis</strong>
+          for financial institutions. The system aggregates and processes comprehensive ESG metrics from corporate entities,
+          providing deep insights into their sustainability practices, social impact, and governance structures. Through
+          advanced data processing capabilities, the platform performs thorough <strong>compliance checks</strong> against
+          regulatory standards and industry benchmarks, enabling stakeholders to make informed investment decisions and
           assess organizational risk profiles.
         </>
       ),
@@ -167,11 +181,11 @@ export default function Projects() {
       description: 'Developed an educational training game designed specifically for hotel staff to enhance their environmental awareness and operational skills. Contributed to game design, conducted user research and surveys, implemented game mechanics using Unity, and developed the web infrastructure using Alibaba Cloud to manage user data and construct the backend services.',
       projectDescription: (
         <>
-          A Master&apos;s Final Year Project focused on <strong>game design and educational technology</strong>. This 
-          interactive training game was specifically developed to enhance hotel employees&apos; <strong>awareness and 
-          engagement with sustainable practices</strong>. Through gamified learning experiences, the platform encourages 
-          staff to adopt <strong>green actions</strong> in their daily operations, fostering environmental consciousness 
-          and promoting sustainable behaviors within the hospitality industry. The project combines engaging gameplay 
+          A Master&apos;s Final Year Project focused on <strong>game design and educational technology</strong>. This
+          interactive training game was specifically developed to enhance hotel employees&apos; <strong>awareness and
+            engagement with sustainable practices</strong>. Through gamified learning experiences, the platform encourages
+          staff to adopt <strong>green actions</strong> in their daily operations, fostering environmental consciousness
+          and promoting sustainable behaviors within the hospitality industry. The project combines engaging gameplay
           mechanics with educational content to create an effective training tool for sustainability initiatives.
         </>
       ),
@@ -191,12 +205,12 @@ export default function Projects() {
       description: 'Developed an innovative Android application enabling multi-dimensional data visualization through intuitive pen-based interactions. Built on the Android platform, incorporating advanced algorithms including the one-dollar gesture recognition algorithm, sophisticated human-computer interaction models, and the jBox2D physics engine. Core functionalities include intelligent gesture recognition, seamless data import, advanced filtering capabilities, and precise coordinate transformation.',
       projectDescription: (
         <>
-          A Bachelor&apos;s Final Year Project that explores innovative approaches to <strong>multidimensional data 
-          visualization</strong> through intuitive interaction methods. The research investigates <strong>multiple 
-          interaction paradigms</strong> for exploring complex datasets with numerous dimensions, utilizing 
-          <strong>hand gesture recognition</strong> and <strong>advanced algorithms</strong> to enable natural and 
-          efficient data exploration. This experimental platform demonstrates how gesture-based interfaces can enhance 
-          user experience when working with high-dimensional data, providing new pathways for human-computer interaction 
+          A Bachelor&apos;s Final Year Project that explores innovative approaches to <strong>multidimensional data
+            visualization</strong> through intuitive interaction methods. The research investigates <strong>multiple
+              interaction paradigms</strong> for exploring complex datasets with numerous dimensions, utilizing
+          <strong>hand gesture recognition</strong> and <strong>advanced algorithms</strong> to enable natural and
+          efficient data exploration. This experimental platform demonstrates how gesture-based interfaces can enhance
+          user experience when working with high-dimensional data, providing new pathways for human-computer interaction
           in data analysis applications.
         </>
       ),
@@ -236,10 +250,10 @@ export default function Projects() {
           <div className={`transition-all duration-700 delay-100 ${isMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             <Card className="shadow-lg bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 border-0">
               <Paragraph style={{ fontSize: '16px', lineHeight: '1.75', textAlign: 'center', margin: 0 }}>
-                This portfolio showcases a curated selection of projects spanning various domains including 
-                financial services, public sector solutions, data visualization, and interactive applications. 
-                Each project demonstrates expertise in modern development practices, architectural design, and 
-                user-centered thinking. Click on any project from the list to view detailed information about 
+                This portfolio showcases a curated selection of projects spanning various domains including
+                financial services, public sector solutions, data visualization, and interactive applications.
+                Each project demonstrates expertise in modern development practices, architectural design, and
+                user-centered thinking. Click on any project from the list to view detailed information about
                 the technical implementation, key responsibilities, and technologies utilized.
               </Paragraph>
             </Card>
@@ -317,9 +331,9 @@ export default function Projects() {
                       <div>
                         <Title level={4}>Project Screenshots</Title>
                         {selectedProject.showMockDataNotice && (
-                          <Paragraph 
-                            style={{ 
-                              fontSize: '14px', 
+                          <Paragraph
+                            style={{
+                              fontSize: '14px',
                               lineHeight: '1.6',
                               color: '#666',
                               fontStyle: 'italic',

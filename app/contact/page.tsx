@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { Form, Input, Button, Card, Typography, Space, message } from 'antd';
 import { MailOutlined, LinkedinOutlined, GithubOutlined } from '@ant-design/icons';
 
@@ -8,11 +9,32 @@ const { TextArea } = Input;
 
 export default function Contact() {
   const [form] = Form.useForm();
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (values: { name: string; email: string; message: string }) => {
-    console.log('Form submitted:', values);
-    message.success('Thank you for your message! I will get back to you soon.');
-    form.resetFields();
+    setLoading(true);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (response.ok) {
+        message.success('Thank you for your message! I will get back to you soon.');
+        form.resetFields();
+      } else {
+        const error = await response.json();
+        message.error(error.error || 'Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      message.error('Failed to send message. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -35,7 +57,7 @@ export default function Contact() {
                     <div>
                       <Text type="secondary" style={{ fontSize: '12px' }}>Email</Text>
                       <div>
-                        <Text strong>your.email@example.com</Text>
+                        <Text strong>cyporteveryday@gmail.com</Text>
                       </div>
                     </div>
                   </Space>
@@ -46,12 +68,12 @@ export default function Contact() {
                     <div>
                       <Text type="secondary" style={{ fontSize: '12px' }}>LinkedIn</Text>
                       <div>
-                        <Text strong>linkedin.com/in/yourprofile</Text>
+                        <Text strong>https://www.linkedin.com/in/cyporteveryday/</Text>
                       </div>
                     </div>
                   </Space>
                 </div>
-                <div>
+                {/* <div>
                   <Space>
                     <GithubOutlined style={{ fontSize: '20px' }} />
                     <div>
@@ -61,7 +83,7 @@ export default function Contact() {
                       </div>
                     </div>
                   </Space>
-                </div>
+                </div> */}
               </Space>
             </Card>
 
@@ -100,8 +122,8 @@ export default function Contact() {
                 </Form.Item>
 
                 <Form.Item>
-                  <Button type="primary" htmlType="submit" block size="large">
-                    Send Message
+                  <Button type="primary" htmlType="submit" block size="large" loading={loading}>
+                    {loading ? 'Sending...' : 'Send Message'}
                   </Button>
                 </Form.Item>
               </Form>
