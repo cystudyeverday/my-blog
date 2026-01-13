@@ -20,21 +20,23 @@ export default function Navigation() {
           <Link href="/" className="text-xl md:text-2xl font-extrabold text-white hover:text-yellow-300 transition-all duration-300 cursor-pointer drop-shadow-lg transform hover:scale-105">
             Cyporteveryday&apos;s Blog
           </Link>
-          <Menu
-            mode="horizontal"
-            selectedKeys={[pathname]}
-            items={navItems.map(item => ({
-              ...item,
-              label: <Link href={item.key} className="font-bold text-base">{item.label}</Link>,
-            }))}
-            className="border-none bg-transparent mcd-navbar"
-            style={{
-              minWidth: 200,
-              justifyContent: 'flex-end',
-              backgroundColor: 'transparent',
-            }}
-            theme="dark"
-          />
+          <div className="flex items-center" style={{ minWidth: 200 }}>
+            <Menu
+              mode="horizontal"
+              selectedKeys={[pathname]}
+              items={navItems.map(item => ({
+                ...item,
+                label: <Link href={item.key} className="font-bold text-base">{item.label}</Link>,
+              }))}
+              className="border-none bg-transparent mcd-navbar"
+              style={{
+                flex: 1,
+                justifyContent: 'flex-end',
+                backgroundColor: 'transparent',
+              }}
+              theme="dark"
+            />
+          </div>
         </div>
       </div>
     </nav>
