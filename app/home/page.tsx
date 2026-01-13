@@ -19,50 +19,50 @@ export default function Home() {
       description: 'Learn about my background, skills, and professional journey',
       icon: UserOutlined,
       href: '/introduction',
-      color: 'blue',
+      color: 'red',
     },
     {
       title: 'Projects',
       description: 'Explore my portfolio of work and technical achievements',
       icon: FolderOutlined,
       href: '/projects',
-      color: 'green',
+      color: 'yellow',
     },
     {
       title: 'Contact',
       description: 'Connect with me for collaboration opportunities',
       icon: MailOutlined,
       href: '/contact',
-      color: 'purple',
+      color: 'redYellow',
     },
   ];
 
   const getColorClasses = (color: string) => {
     const colors = {
-      blue: {
-        icon: 'text-blue-600 dark:text-blue-400',
-        bg: 'bg-blue-50 dark:bg-blue-950/30',
-        border: 'border-blue-100 dark:border-blue-900/50',
-        hoverBg: 'hover:bg-blue-50/80 dark:hover:bg-blue-950/50',
+      red: {
+        icon: 'text-red-600 dark:text-red-400',
+        bg: 'bg-red-50 dark:bg-red-950/30',
+        border: 'border-red-100 dark:border-red-900/50',
+        hoverBg: 'hover:bg-red-50/80 dark:hover:bg-red-950/50',
       },
-      green: {
-        icon: 'text-green-600 dark:text-green-400',
-        bg: 'bg-green-50 dark:bg-green-950/30',
-        border: 'border-green-100 dark:border-green-900/50',
-        hoverBg: 'hover:bg-green-50/80 dark:hover:bg-green-950/50',
+      yellow: {
+        icon: 'text-yellow-600 dark:text-yellow-400',
+        bg: 'bg-yellow-50 dark:bg-yellow-950/30',
+        border: 'border-yellow-100 dark:border-yellow-900/50',
+        hoverBg: 'hover:bg-yellow-50/80 dark:hover:bg-yellow-950/50',
       },
-      purple: {
-        icon: 'text-purple-600 dark:text-purple-400',
-        bg: 'bg-purple-50 dark:bg-purple-950/30',
-        border: 'border-purple-100 dark:border-purple-900/50',
-        hoverBg: 'hover:bg-purple-50/80 dark:hover:bg-purple-950/50',
+      redYellow: {
+        icon: 'text-red-600 dark:text-red-400',
+        bg: 'bg-gradient-to-br from-red-50 to-yellow-50 dark:from-red-950/30 dark:to-yellow-950/30',
+        border: 'border-red-200 dark:border-red-900/50',
+        hoverBg: 'hover:bg-gradient-to-br hover:from-red-50/80 hover:to-yellow-50/80 dark:hover:from-red-950/50 dark:hover:to-yellow-950/50',
       },
     };
     return colors[color as keyof typeof colors];
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-yellow-50 to-red-100 dark:bg-gray-950">
       {/* Hero Section */}
       <section className="relative">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
@@ -71,8 +71,8 @@ export default function Home() {
               }`}
           >
             <Link href="/">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 cursor-pointer hover:text-gray-700 dark:hover:text-gray-300 transition-colors">
-                My Blog
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 bg-clip-text text-transparent mb-6 cursor-pointer hover:opacity-80 transition-opacity">
+                Cyporteveryday&apos;s Blog
               </h1>
             </Link>
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
@@ -138,7 +138,7 @@ export default function Home() {
                 Interested in working together?
               </p>
               <Link href="/contact">
-                <button className="px-8 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl">
+                <button className="px-8 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors duration-300 shadow-lg hover:shadow-xl">
                   Get in Touch
                 </button>
               </Link>

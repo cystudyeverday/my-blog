@@ -20,12 +20,16 @@ export async function POST(request: NextRequest) {
     // 2. Generate an "App Password" at https://myaccount.google.com/apppasswords
     // 3. Use that App Password (not your regular password)
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'gmail.com',
+      port: 587,
+      secure: false, // true if you use port 465
+      requireTLS: true,
       auth: {
         user: process.env.EMAIL_USER, // Your Gmail address
         pass: process.env.EMAIL_PASSWORD, // Your Gmail App Password
       },
     });
+
 
     // Email to yourself
     const mailOptions = {
@@ -52,6 +56,11 @@ export async function POST(request: NextRequest) {
       `,
       replyTo: email, // This allows you to reply directly to the person who contacted you
     };
+
+    // Debug env vars (safe to log length/structure)
+    console.log('EMAIL_USER:', process.env.EMAIL_USER);
+    console.log('EMAIL_PASSWORD length:', process.env.EMAIL_PASSWORD?.length);
+    console.log('EMAIL_PASSWORD preview:', process.env.EMAIL_PASSWORD?.slice(0, 4) + '...');
 
     // Send email
     await transporter.sendMail(mailOptions);

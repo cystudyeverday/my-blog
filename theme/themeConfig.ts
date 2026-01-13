@@ -2,9 +2,9 @@ import { ThemeConfig } from 'antd';
 
 const theme: ThemeConfig = {
   token: {
-    colorPrimary: '#22c55e', // green-500
-    colorSuccess: '#22c55e',
-    colorInfo: '#22c55e',
+    colorPrimary: '#DC143C', // McDonald's red
+    colorSuccess: '#FFC72C', // McDonald's yellow
+    colorInfo: '#DC143C',
     borderRadius: 8,
     fontFamily: 'Arial, Helvetica, sans-serif',
   },
@@ -17,8 +17,13 @@ const theme: ThemeConfig = {
       borderRadius: 16,
     },
     Menu: {
-      itemSelectedBg: '#dcfce7', // green-100
-      itemHoverBg: '#f0fdf4', // green-50
+      itemSelectedBg: '#FFC72C', // McDonald's yellow
+      itemHoverBg: 'rgba(255, 199, 44, 0.2)', // yellow with transparency
+      itemSelectedColor: '#FFFFFF',
+      itemHoverColor: '#FFC72C',
+      itemColor: 'rgba(255, 255, 255, 0.85)',
+      itemActiveBg: '#FFC72C',
+      subMenuItemBg: 'transparent',
     },
   },
 };

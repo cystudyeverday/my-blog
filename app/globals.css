@@ -32,18 +32,41 @@ body {
     background: transparent;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: rgba(34, 197, 94, 0.5);
+    background: rgba(220, 20, 60, 0.5);
     border-radius: 4px;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: rgba(34, 197, 94, 0.7);
+    background: rgba(220, 20, 60, 0.7);
   }
   
   .dark .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: rgba(74, 222, 128, 0.5);
+    background: rgba(255, 199, 44, 0.5);
   }
   .dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: rgba(74, 222, 128, 0.7);
+    background: rgba(255, 199, 44, 0.7);
+  }
+  
+  /* McDonald's Navbar Styles */
+  .mcd-navbar .ant-menu-item {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .mcd-navbar .ant-menu-item:hover {
+    color: #FFC72C !important;
+    background-color: rgba(220, 20, 60, 0.3) !important;
+  }
+  
+  .mcd-navbar .ant-menu-item-selected {
+    background-color: #FFC72C !important;
+    color: #DC143C !important;
+    font-weight: 700 !important;
+    border-radius: 6px;
+  }
+  
+  .mcd-navbar .ant-menu-item-selected::after {
+    display: none;
   }
 }
 

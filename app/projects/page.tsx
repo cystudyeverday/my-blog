@@ -231,7 +231,7 @@ export default function Projects() {
   const selectedProject = projects[selectedIndex];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-yellow-50 to-red-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
         <div className="space-y-8 md:space-y-12">
           {/* Header Section */}
@@ -248,7 +248,7 @@ export default function Projects() {
 
           {/* Project Description Section */}
           <div className={`transition-all duration-700 delay-100 ${isMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <Card className="shadow-lg bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 border-0">
+            <Card className="shadow-lg bg-gradient-to-r from-red-50 to-yellow-50 dark:from-gray-800 dark:to-gray-700 border-0">
               <Paragraph style={{ fontSize: '16px', lineHeight: '1.75', textAlign: 'center', margin: 0 }}>
                 This portfolio showcases a curated selection of projects spanning various domains including
                 financial services, public sector solutions, data visualization, and interactive applications.
@@ -267,7 +267,7 @@ export default function Projects() {
                   title={
                     <Space>
                       <span>Project List</span>
-                      <Badge count={projects.length} showZero color="#22c55e" />
+                      <Badge count={projects.length} showZero style={{ backgroundColor: '#DC143C' }} />
                     </Space>
                   }
                   className="shadow-xl"
@@ -278,8 +278,8 @@ export default function Projects() {
                       <List.Item
                         onClick={() => setSelectedIndex(index)}
                         className={`cursor-pointer transition-all duration-300 ${selectedIndex === index
-                          ? 'bg-green-50 dark:bg-green-900/20 border-l-4 border-l-green-600 dark:border-l-green-500'
-                          : 'hover:bg-green-50/50 dark:hover:bg-green-900/10'
+                          ? 'bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-l-red-600 dark:border-l-red-500'
+                          : 'hover:bg-yellow-50/50 dark:hover:bg-yellow-900/10'
                           }`}
                         style={{
                           padding: '16px',
@@ -291,7 +291,7 @@ export default function Projects() {
                             <Text
                               strong
                               style={{
-                                color: selectedIndex === index ? '#22c55e' : undefined,
+                                color: selectedIndex === index ? '#DC143C' : undefined,
                               }}
                             >
                               {project.title}
@@ -339,13 +339,13 @@ export default function Projects() {
                               fontStyle: 'italic',
                               marginBottom: '16px',
                               padding: '12px 16px',
-                              backgroundColor: '#f0f7ff',
-                              borderLeft: '3px solid #1890ff',
+                              backgroundColor: '#fef2f2',
+                              borderLeft: '3px solid #DC143C',
                               borderRadius: '4px'
                             }}
                             className="dark:bg-blue-900/20 dark:text-gray-300 dark:border-blue-500"
                           >
-                            <Text strong style={{ color: '#1890ff' }}>Privacy Notice:</Text> The screenshots displayed use mock data and design elements to protect the confidentiality of the actual products and client information.
+                            <Text strong style={{ color: '#DC143C' }}>Privacy Notice:</Text> The screenshots displayed use mock data and design elements to protect the confidentiality of the actual products and client information.
                           </Paragraph>
                         )}
                         <div className={`grid gap-4 ${selectedProject.images.length === 1
@@ -390,7 +390,7 @@ export default function Projects() {
                           renderItem={(item) => (
                             <List.Item>
                               <List.Item.Meta
-                                avatar={<div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: '#22c55e', marginTop: 8 }} />}
+                                avatar={<div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: '#DC143C', marginTop: 8 }} />}
                                 description={item}
                               />
                             </List.Item>
@@ -403,11 +403,11 @@ export default function Projects() {
                     {selectedProject.achievement && (
                       <Card
                         style={{
-                          background: 'linear-gradient(to right, #f0fdf4, #ecfdf5)',
-                          borderColor: '#86efac',
+                          background: 'linear-gradient(to right, #fef3c7, #fee2e2)',
+                          borderColor: '#FFC72C',
                         }}
                       >
-                        <Text strong style={{ color: '#166534' }}>
+                        <Text strong style={{ color: '#DC143C' }}>
                           {selectedProject.achievement}
                         </Text>
                       </Card>
@@ -418,7 +418,7 @@ export default function Projects() {
                       <Title level={4}>Technologies Used</Title>
                       <Space wrap>
                         {selectedProject.tech.map((tech) => (
-                          <Tag key={tech} color="success" style={{ padding: '4px 12px', fontSize: '14px' }}>
+                          <Tag key={tech} style={{ padding: '4px 12px', fontSize: '14px', backgroundColor: '#FFC72C', color: '#DC143C', borderColor: '#DC143C', fontWeight: '600' }}>
                             {tech}
                           </Tag>
                         ))}

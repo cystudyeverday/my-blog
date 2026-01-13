@@ -19,34 +19,34 @@ export default function Home() {
       description: 'Get to know me, my background, and my journey',
       icon: UserOutlined,
       href: '/introduction',
-      gradient: 'from-blue-500 to-cyan-500',
-      iconColor: '#3b82f6',
+      gradient: 'from-red-600 to-red-500',
+      iconColor: '#DC143C',
     },
     {
       title: 'Projects',
       description: 'Explore my portfolio of work and creative projects',
       icon: FolderOutlined,
       href: '/projects',
-      gradient: 'from-green-500 to-emerald-500',
-      iconColor: '#22c55e',
+      gradient: 'from-yellow-400 to-yellow-500',
+      iconColor: '#FFC72C',
     },
     {
       title: 'Contact',
       description: 'Let\'s connect and collaborate on exciting opportunities',
       icon: MailOutlined,
       href: '/contact',
-      gradient: 'from-purple-500 to-pink-500',
-      iconColor: '#a855f7',
+      gradient: 'from-red-600 to-yellow-400',
+      iconColor: '#DC143C',
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-yellow-50 to-red-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-300/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-green-300/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-purple-300/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-red-300/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-yellow-300/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-red-400/15 rounded-full blur-3xl animate-pulse delay-2000"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
@@ -57,8 +57,8 @@ export default function Home() {
               }`}
           >
             <Link href="/">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-green-600 to-purple-600 bg-clip-text text-transparent animate-gradient cursor-pointer hover:opacity-80 transition-opacity">
-                Welcome to My Blog
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 bg-clip-text text-transparent animate-gradient cursor-pointer hover:opacity-80 transition-opacity">
+                Welcome to Cyporteveryday&apos;s Blog
               </h1>
             </Link>
             <Paragraph
@@ -189,7 +189,7 @@ export default function Home() {
                         </Paragraph>
 
                         {/* Arrow indicator */}
-                        <div className="mt-4 flex items-center text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="mt-4 flex items-center text-red-600 dark:text-red-400 opacity-0 group-hover:opacity-100 transition-opacity">
                           <span className="text-sm font-medium mr-2">Explore</span>
                           <ArrowRightOutlined className="transition-transform duration-300 group-hover:translate-x-1" />
                         </div>
@@ -207,7 +207,7 @@ export default function Home() {
               }`}
           >
             <Paragraph className="text-gray-500 dark:text-gray-400 italic">
-              "Building digital experiences, one project at a time"
+              &quot;Building digital experiences, one project at a time&quot;
             </Paragraph>
           </div>
         </Space>
