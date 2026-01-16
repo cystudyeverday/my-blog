@@ -63,7 +63,7 @@ export default function Contact() {
                   </Space>
                 </div>
                 <div>
-                  <Space>
+                  {/* <Space>
                     <LinkedinOutlined style={{ fontSize: '20px' }} />
                     <div>
                       <Text type="secondary" style={{ fontSize: '12px' }}>LinkedIn</Text>
@@ -71,7 +71,7 @@ export default function Contact() {
                         <Text strong>https://www.linkedin.com/in/cyporteveryday/</Text>
                       </div>
                     </div>
-                  </Space>
+                  </Space> */}
                 </div>
                 {/* <div>
                   <Space>

@@ -5,7 +5,7 @@ import Image from 'next/image';
 const { Title, Paragraph } = Typography;
 
 export default function Introduction() {
-  const skills = ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Figma', 'UI/UX Design'];
+  const skills = ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Docker', 'Zustand', 'Tanstack query', 'Figma', 'UI/UX Design'];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 via-yellow-50 to-red-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">

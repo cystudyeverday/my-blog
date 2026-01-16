@@ -69,7 +69,7 @@ export default function Projects() {
       tech: ['Next.js', 'TypeScript', 'Steaming API'],
       status: 'Completed',
       period: 'Dec 2025 - Present',
-      images: ['/projects/ai-chatbot-1.jpg'],
+      images: ['/projects/ai-chatbot-1.png'],
       showMockDataNotice: true,
       responsibilities: [
         'Implemented a chat interface with real-time messaging and response generation',

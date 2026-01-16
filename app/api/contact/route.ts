@@ -20,14 +20,17 @@ export async function POST(request: NextRequest) {
     // 2. Generate an "App Password" at https://myaccount.google.com/apppasswords
     // 3. Use that App Password (not your regular password)
     const transporter = nodemailer.createTransport({
-      host: 'gmail.com',
+      host: 'smtp.gmail.com',
       port: 587,
       secure: false, // true if you use port 465
-      requireTLS: true,
+      // requireTLS: true,
       auth: {
         user: process.env.EMAIL_USER, // Your Gmail address
         pass: process.env.EMAIL_PASSWORD, // Your Gmail App Password
       },
+      tls: {
+        rejectUnauthorized: false
+      }
     });
 
 
