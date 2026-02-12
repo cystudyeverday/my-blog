@@ -4,6 +4,7 @@ import Navigation from "@/components/Navigation";
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { ConfigProvider } from 'antd';
 import theme from '@/theme/themeConfig';
+import { QueryProvider } from "@/providers/QueryProvider";
 
 export const metadata: Metadata = {
   title: "Cysporteveryday's Blog",
@@ -18,14 +19,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
-        <AntdRegistry>
-          <ConfigProvider theme={theme}>
-            <Navigation />
-            <main className="pt-16 min-h-screen">
-              {children}
-            </main>
-          </ConfigProvider>
-        </AntdRegistry>
+        <QueryProvider>
+          <AntdRegistry>
+            <ConfigProvider theme={theme}>
+              <Navigation />
+              <main className="pt-16 min-h-screen">
+                {children}
+              </main>
+            </ConfigProvider>
+          </AntdRegistry>
+        </QueryProvider>
       </body>
     </html>
   );
