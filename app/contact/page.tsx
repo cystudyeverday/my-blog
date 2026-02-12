@@ -57,7 +57,7 @@ export default function Contact() {
                     <div>
                       <Text type="secondary" style={{ fontSize: '12px' }}>Email</Text>
                       <div>
-                        <Text strong>cyporteveryday@gmail.com</Text>
+                        <Text strong>cysporteveryday@gmail.com</Text>
                       </div>
                     </div>
                   </Space>

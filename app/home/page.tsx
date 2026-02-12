@@ -72,7 +72,7 @@ export default function Home() {
           >
             <Link href="/">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 bg-clip-text text-transparent mb-6 cursor-pointer hover:opacity-80 transition-opacity">
-                Cyporteveryday&apos;s Blog
+                Cysporteveryday&apos;s Blog
               </h1>
             </Link>
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
@@ -84,7 +84,7 @@ export default function Home() {
 
       {/* Main Content */}
       <section className="relative pb-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[200px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {sections.map((section, index) => {

@@ -43,7 +43,7 @@ export default function Introduction() {
                 <Title level={2}>About Me</Title>
                 <Paragraph style={{ fontSize: '16px', lineHeight: '1.75' }}>
                   I am a dedicated software developer and technical professional specializing in
-                  creating impactful digital solutions. With <strong>5 years of experience in frontend
+                  creating impactful digital solutions. With <strong>6 years of experience in frontend
                     development</strong> and extensive expertise in modern web technologies, I bring a
                   strong foundation in user experience design and technical excellence to every project.
                   I transform conceptual ideas into robust, user-centric applications that deliver

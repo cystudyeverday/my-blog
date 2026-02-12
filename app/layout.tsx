@@ -6,7 +6,7 @@ import { ConfigProvider } from 'antd';
 import theme from '@/theme/themeConfig';
 
 export const metadata: Metadata = {
-  title: "Cyporteveryday's Blog",
+  title: "Cysporteveryday's Blog",
   description: "A personal blog showcasing my work and thoughts",
 };
 

@@ -18,9 +18,9 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="text-xl md:text-2xl font-extrabold text-white hover:text-yellow-300 transition-all duration-300 cursor-pointer drop-shadow-lg transform hover:scale-105">
-            Cyporteveryday&apos;s Blog
+            Cysporteveryday&apos;s Blog
           </Link>
-          <div className="flex items-center" style={{ minWidth: 200 }}>
+          <div className="flex items-center" style={{ minWidth: 600 }}>
             <Menu
               mode="horizontal"
               selectedKeys={[pathname]}

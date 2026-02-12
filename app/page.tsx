@@ -58,7 +58,7 @@ export default function Home() {
           >
             <Link href="/">
               <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 bg-clip-text text-transparent animate-gradient cursor-pointer hover:opacity-80 transition-opacity">
-                Welcome to Cyporteveryday&apos;s Blog
+                Welcome to Cysporteveryday&apos;s Blog
               </h1>
             </Link>
             <Paragraph
