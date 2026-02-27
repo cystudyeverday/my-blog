@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
+import ChatButton from "@/components/ChatButton";
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { ConfigProvider } from 'antd';
 import theme from '@/theme/themeConfig';
@@ -26,6 +27,7 @@ export default function RootLayout({
               <main className="pt-16 min-h-screen">
                 {children}
               </main>
+              <ChatButton />
             </ConfigProvider>
           </AntdRegistry>
         </QueryProvider>
