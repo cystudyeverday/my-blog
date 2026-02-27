@@ -6,7 +6,12 @@ const nextConfig = {
     return [
       {
         source: '/',
-        destination: '/home',
+        destination: '/introduction',
+        permanent: true,
+      },
+      {
+        source: '/home',
+        destination: '/introduction',
         permanent: true,
       },
     ];
