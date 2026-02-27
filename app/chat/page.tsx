@@ -4,7 +4,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Input, Button, List, Card, Typography, Alert } from 'antd';
 import { SendOutlined } from '@ant-design/icons';
-import { useQwenQuery } from '@/lib/qwen';
+import { useQwenQuery } from '@/lib/hooks/use-qwen';
 
 const { TextArea } = Input;
 const { Text } = Typography;
@@ -31,6 +31,8 @@ export default function Home() {
     isError,
     error,
   } = useQwenQuery(currentPrompt);
+
+  console.log('aiResponse', aiResponse);
 
   // 自动滚动到底部 - 流式时使用 instant，完成后使用 smooth
   const scrollToBottom = (behavior: ScrollBehavior = 'smooth') => {
@@ -127,11 +129,11 @@ export default function Home() {
   return (
     <div style={{ padding: '24px', maxWidth: '800px', margin: '0 auto' }}>
       <Card title="🤖 AI Streaming Chat" bordered={false}>
-        <div 
+        <div
           ref={messagesContainerRef}
-          style={{ 
-            height: '50vh', 
-            overflowY: 'auto', 
+          style={{
+            height: '50vh',
+            overflowY: 'auto',
             marginBottom: '16px',
             padding: '8px',
             scrollBehavior: 'smooth'
@@ -165,8 +167,8 @@ export default function Home() {
                     {msg.content || (msg.isStreaming ? '▊' : '')}
                   </div>
                   {msg.isStreaming && msg.content && (
-                    <span 
-                      style={{ 
+                    <span
+                      style={{
                         animation: 'blink 1s infinite',
                         marginLeft: '2px'
                       }}

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cai Yang - Senior Frontend Developer Resume</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            /* 深蓝色标题 */
+            --accent-color: #3498db;
+            /* 亮蓝色强调 */
+            --text-color: #333333;
+            --light-text: #666666;
+            --bg-color: #ffffff;
+            --section-margin: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            color: var(--text-color);
+            background-color: #f0f0f0;
+            font-size: 11pt;
+        }
+
+        /* A4 Paper Simulation */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 15mm 20mm;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        /* Header Section */
+        header {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 15px;
+            margin-bottom: var(--section-margin);
+        }
+
+        h1 {
+            font-size: 24pt;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .job-title {
+            font-size: 14pt;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 10pt;
+            color: var(--light-text);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-item span {
+            margin-right: 5px;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: var(--section-margin);
+        }
+
+        h2 {
+            font-size: 14pt;
+            color: var(--primary-color);
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Summary */
+        .summary-text {
+            text-align: justify;
+            color: var(--text-color);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .skill-category {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .skill-list {
+            color: var(--text-color);
+        }
+
+        /* Experience Items */
+        .experience-item {
+            margin-bottom: 15px;
+        }
+
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .company-name {
+            font-size: 13pt;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .date-range {
+            font-size: 10pt;
+            color: var(--light-text);
+            font-style: italic;
+            white-space: nowrap;
+        }
+
+        .role-group {
+            margin-left: 5px;
+            margin-bottom: 8px;
+
+        }
+
+        .role-item {
+            font-weight: 600;
+            color: var(--text-color);
+            display: block;
+        }
+
+        .role-date {
+            font-weight: normal;
+            color: var(--light-text);
+            font-size: 10pt;
+            margin-left: 10px;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        li {
+            margin-bottom: 4px;
+            text-align: justify;
+        }
+
+        .project-subtitle {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-top: 8px;
+            display: block;
+        }
+
+        /* Education */
+        .edu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .degree {
+            font-weight: bold;
+        }
+
+        .school {
+            color: var(--text-color);
+        }
+
+        /* Print Settings */
+        @media print {
+            body {
+                background: none;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+                width: 100%;
+                height: auto;
+                padding: 10mm 15mm;
+                /* Slightly smaller padding for print */
+            }
+
+            a {
+                text-decoration: none;
+                color: var(--text-color);
+            }
+
+            /* Ensure background colors print if any */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+        <!-- Header -->
+        <header>
+            <h1>Cai Yang</h1>
+            <div class="job-title">Senior Engineer, Frontend Development</div>
+            <div class="contact-info">
+                <div class="contact-item">📍 Hong Kong</div>
+                <div class="contact-item">📞 (+852) 5535 5928</div>
+                <div class="contact-item">📞 (+86) 156-5177-4658</div>
+                <div class="contact-item">📧 cysporteveryday@gmail.com</div>
+                <div class="contact-item">🔗 <a href="https://cysporteveryday.vercel.app/projects"
+                        target="_blank">Portfolio : https://cysporteveryday.vercel.app/projects </a></div>
+            </div>
+        </header>
+
+        <!-- Professional Summary -->
+        <section>
+            <h2 style="color: var(--accent-color);">Professional Summary</h2>
+            <p class="summary-text">
+                Results-driven <strong>Senior Frontend Developer</strong> with 5+ years of experience specializing in
+                <strong>Next.js, React, and TypeScript</strong>. Proven expertise in migrating legacy SPAs to modern
+                Next.js architectures, optimizing build performance, and architecting scalable state management
+                solutions (Zustand/Redux). Adept at leading cross-functional teams to deliver data-intensive dashboards
+                and real-time visualization tools for government and financial sectors. Passionate about code quality,
+                UI/UX excellence, and mentoring junior engineers.
+            </p>
+        </section>
+
+        <!-- Technical Skills -->
+        <section>
+            <h2 style="color: var(--accent-color);">Technical Skills</h2>
+            <div class="skills-grid">
+                <div>
+                    <span class="skill-category">Languages:</span>
+                    <span class="skill-list">JavaScript (ES6+), TypeScript, HTML5, CSS3, SASS</span>
+                </div>
+                <div>
+                    <span class="skill-category">Frameworks:</span>
+                    <span class="skill-list">React 18+, Next.js 14 (App Router), Node.js (Basic)</span>
+                </div>
+                <div>
+                    <span class="skill-category">State Management:</span>
+                    <span class="skill-list">Zustand, Redux Toolkit, Context API</span>
+                </div>
+                <div>
+                    <span class="skill-category">Visualization:</span>
+                    <span class="skill-list">BizCharts, Google Maps API, WebSocket, D3.js</span>
+                </div>
+                <div>
+                    <span class="skill-category">Tools:</span>
+                    <span class="skill-list">Git, Webpack, Vite, Figma, Docker, CI/CD</span>
+                </div>
+                <div>
+                    <span class="skill-category">Testing:</span>
+                    <span class="skill-list">Jest, React Testing Library, Cypress</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section>
+            <h2 style="color: var(--accent-color);">Professional Experience</h2>
+
+            <div class="experience-item">
+                <div class="company-header">
+                    <div class="company-name">ASTRI (Hong Kong Applied Science and Technology Research Institute)</div>
+                    <div class="date-range">Aug 2019 – Present</div>
+                </div>
+
+                <div class="role-group">
+                    <span class="role-item">Senior Frontend Engineer <span class="role-date">| Aug 2023 –
+                            Present</span></span>
+                    <span class="role-item">Frontend Engineer <span class="role-date">| Oct 2020 – July
+                            2023</span></span>
+                    <span class="role-item">Engineer (PI) <span class="role-date">| Nov 2019 – Oct 2020</span></span>
+                </div>
+
+                <!-- <p style="font-style: italic; font-size: 10pt; color: #666; margin-bottom: 8px;">
+                    Promoted progressively based on performance, taking ownership of architecture design and team
+                    leadership.
+                </p> -->
+
+                <ul>
+                    <li><strong>Architecture & Migration:</strong> Spearheaded the migration of large-scale legacy React
+                        applications to <strong>Next.js 14 (App Router)</strong>, improving SEO scores and reducing
+                        initial load time significantly.</li>
+                    <li><strong>State Management:</strong> Architected a global state management system using
+                        <strong>Zustand</strong>, replacing complex Redux logic and reducing boilerplate code by ~40%.
+                    </li>
+                    <li><strong>Real-time Data:</strong> Engineered high-performance dashboards integrating
+                        <strong>WebSocket</strong> for real-time data streaming, handling concurrent updates with zero
+                        latency issues.
+                    </li>
+                    <li><strong>Leadership:</strong> Led a team of developers; conducted code reviews, established
+                        coding standards, and mentored juniors on TypeScript best practices and React patterns.</li>
+                </ul>
+
+                <strong style="display:block; margin-top:10px; color:var(--accent-color);">Key Projects:</strong>
+                <ul>
+                    <li>
+                        <span class="project-subtitle">Housing Authority – AI Lift Monitoring System</span>
+                        Developed a geospatial visualization module using <strong>Google Maps API</strong> with custom
+                        marker clustering. Led the full-stack migration to Next.js, optimizing SSR strategies which
+                        improved Core Web Vitals.
+                    </li>
+                    <li>
+                        <span class="project-subtitle">Boc & OCBC – Compliance & Risk Dashboard</span>
+                        Built interactive financial dashboards featuring multi-type charts (BizCharts). Designed a
+                        robust <strong>Role-Based Access Control (RBAC)</strong> system and integrated real-time
+                        WebSocket alerts for high-risk transactions.
+                    </li>
+                    <li>
+                        <span class="project-subtitle">ICAC – Case Analysis & Knowledge Graph Platform</span>
+                        Developed a custom <strong>Knowledge Graph</strong> component to visualize entity relationships.
+                        Integrated AI-generated analysis modules and optimized rendering for large datasets (>10k
+                        nodes).
+                    </li>
+                    <li>
+                        <span class="project-subtitle">ESG Data Analytics Platform</span>
+                        Transformed complex sustainability datasets into intuitive visualizations using BizCharts.
+                        Implemented dynamic report generation (PDF/Excel) for stakeholder analysis.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section>
+            <h2 style="color: var(--accent-color);">Education</h2>
+            <div class="edu-item">
+                <div>
+                    <div class="degree">M.Sc. in Multimedia Entertainment Technology, School of Design</div>
+                    <div class="school">The Hong Kong Polytechnic University</div>
+                </div>
+                <div class="date-range">2019 – 2020</div>
+            </div>
+            <div class="edu-item">
+                <div>
+                    <div class="degree">B.Eng. in Internet of Things (IoT), School of Computer Science
+                    </div>
+                    <div class="school">Nanjing University of Aeronautics and Astronautics</div>
+                </div>
+                <div class="date-range">2014 – 2018</div>
+            </div>
+        </section>
+
+        <!-- Languages -->
+        <section>
+            <h2 style="color: var(--accent-color);">Languages</h2>
+            <div class="skills-grid">
+                <div><strong>English:</strong> Professional Working Proficiency</div>
+                <div><strong>Mandarin:</strong> Native</div>
+                <div><strong>Cantonese:</strong> Fluent</div>
+            </div>
+        </section>
+    </div>
+
+</body>
+
+</html>
