@@ -7,6 +7,7 @@ import { useQwenQuery } from '@/lib/hooks/use-qwen';
 
 const MAX_INPUT_CHARS = 200;
 const MAX_TURNS = 10;
+const STORAGE_KEY = 'chat_turn_count';
 
 const { TextArea } = Input;
 const { Text } = Typography;
@@ -23,7 +24,10 @@ export default function Home() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [currentPrompt, setCurrentPrompt] = useState('');
   const [isWaitingResponse, setIsWaitingResponse] = useState(false);
-  const [turnCount, setTurnCount] = useState(0);
+  const [turnCount, setTurnCount] = useState<number>(() => {
+    if (typeof window === 'undefined') return 0;
+    return parseInt(localStorage.getItem(STORAGE_KEY) ?? '0', 10);
+  });
   const limitReached = turnCount >= MAX_TURNS;
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
@@ -116,10 +120,12 @@ export default function Home() {
       content: inputValue,
     };
 
+    const nextCount = turnCount + 1;
+    localStorage.setItem(STORAGE_KEY, String(nextCount));
     setMessages((prev) => [...prev, userMsg]);
     setCurrentPrompt(inputValue);
     setIsWaitingResponse(true);
-    setTurnCount((n) => n + 1);
+    setTurnCount(nextCount);
     setInputValue('');
   };
 
