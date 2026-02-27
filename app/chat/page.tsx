@@ -1,10 +1,12 @@
-// src/app/page.tsx
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
 import { Input, Button, List, Card, Typography, Alert } from 'antd';
 import { SendOutlined } from '@ant-design/icons';
 import { useQwenQuery } from '@/lib/hooks/use-qwen';
+
+const MAX_INPUT_CHARS = 200;
+const MAX_TURNS = 10;
 
 const { TextArea } = Input;
 const { Text } = Typography;
@@ -21,6 +23,8 @@ export default function Home() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [currentPrompt, setCurrentPrompt] = useState('');
   const [isWaitingResponse, setIsWaitingResponse] = useState(false);
+  const [turnCount, setTurnCount] = useState(0);
+  const limitReached = turnCount >= MAX_TURNS;
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
 
@@ -103,9 +107,8 @@ export default function Home() {
     }
   }, [aiResponse, isLoading, isWaitingResponse]);
 
-  // 当用户发送消息
   const handleSend = () => {
-    if (!inputValue.trim() || isLoading) return;
+    if (!inputValue.trim() || isLoading || limitReached) return;
 
     const userMsg: Message = {
       id: Date.now().toString(),
@@ -114,8 +117,9 @@ export default function Home() {
     };
 
     setMessages((prev) => [...prev, userMsg]);
-    setCurrentPrompt(inputValue); // 触发查询
+    setCurrentPrompt(inputValue);
     setIsWaitingResponse(true);
+    setTurnCount((n) => n + 1);
     setInputValue('');
   };
 
@@ -194,23 +198,46 @@ export default function Home() {
           )}
         </div>
 
-        <div style={{ display: 'flex', gap: '8px' }}>
-          <TextArea
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder="输入问题...（Enter 发送，Shift+Enter 换行）"
-            autoSize={{ minRows: 1, maxRows: 4 }}
-            disabled={isLoading}
+        {limitReached && (
+          <Alert
+            message={`Session limit reached (${MAX_TURNS} questions). Refresh the page to start a new session.`}
+            type="warning"
+            showIcon
+            style={{ marginBottom: '8px' }}
           />
+        )}
+
+        <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-end' }}>
+          <div style={{ flex: 1 }}>
+            <TextArea
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value.slice(0, MAX_INPUT_CHARS))}
+              onKeyDown={handleKeyDown}
+              placeholder="Ask about Cai Yang's background, skills or projects..."
+              autoSize={{ minRows: 1, maxRows: 4 }}
+              disabled={isLoading || limitReached}
+            />
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '4px' }}>
+              <Text type="secondary" style={{ fontSize: '12px' }}>
+                {turnCount}/{MAX_TURNS} questions used
+              </Text>
+              <Text
+                type={inputValue.length >= MAX_INPUT_CHARS ? 'danger' : 'secondary'}
+                style={{ fontSize: '12px' }}
+              >
+                {inputValue.length}/{MAX_INPUT_CHARS}
+              </Text>
+            </div>
+          </div>
           <Button
             type="primary"
             icon={<SendOutlined />}
             onClick={handleSend}
-            disabled={isLoading || !inputValue.trim()}
+            disabled={isLoading || !inputValue.trim() || limitReached}
             loading={isLoading}
+            style={{ marginBottom: '22px' }}
           >
-            发送
+            Send
           </Button>
         </div>
       </Card>
