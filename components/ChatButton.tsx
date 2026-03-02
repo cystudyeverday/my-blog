@@ -4,11 +4,20 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Tooltip } from 'antd';
 import { RobotOutlined } from '@ant-design/icons';
+import { useEffect } from 'react';
 
 export default function ChatButton() {
   const pathname = usePathname();
 
   if (pathname === '/chat') return null;
+  useEffect(() => {
+    const userAgent = navigator.userAgent;
+    // const ip = getIP();
+    fetch('/api/visitLog', {
+      method: 'POST',
+      body: JSON.stringify({ ip: '127.0.0.1', userAgent, path: pathname }),
+    });
+  }, [pathname]);
 
   return (
     <Tooltip title="Chat with My AI Assistant" placement="left">
