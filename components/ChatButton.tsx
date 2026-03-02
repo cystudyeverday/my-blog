@@ -9,7 +9,6 @@ import { useEffect } from 'react';
 export default function ChatButton() {
   const pathname = usePathname();
 
-  if (pathname === '/chat') return null;
   useEffect(() => {
     const userAgent = navigator.userAgent;
     // const ip = getIP();
