@@ -63,3 +63,13 @@ You can customize the content by editing:
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 
+### Add prisma
+
+link to docker postfres
+docker run --name my-postgres-prisma \
+  -e POSTGRES_DB=mydb \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=postgres \
+  -p 5432:5432 \
+  -d postgres:15
+
