@@ -20,3 +20,9 @@ model VisitLog {
   userAgent String
   path      String
 }
+
+model PromptLog {
+  id        Int      @id @default(autoincrement())
+  prompt    String
+  createdAt DateTime @default(now())
+}

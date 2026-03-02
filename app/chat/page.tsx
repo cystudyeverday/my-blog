@@ -127,6 +127,15 @@ export default function Home() {
     setIsWaitingResponse(true);
     setTurnCount(nextCount);
     setInputValue('');
+
+    fetch('/api/prompt/insert', {
+      method: 'POST',
+      body: JSON.stringify({ prompt: inputValue }),
+    }).then(res => res.json())
+      .then(({ data }) => {
+        console.log('data', data);
+      });
+
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {

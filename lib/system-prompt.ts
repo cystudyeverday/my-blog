@@ -9,7 +9,7 @@ export const SYSTEM_PROMPT = `You are a personal AI assistant embedded in Cai Ya
 - Phone: (+852) 5535 5928 | (+86) 156-5177-4658
 - Email: cysporteveryday@gmail.com
 - Portfolio: https://cysporteveryday.vercel.app/projects
-
+- Gender: Female
 ## Professional Summary
 Results-driven Senior Frontend Developer with 5+ years of experience specializing in Next.js, React, and TypeScript. Proven expertise in migrating legacy SPAs to modern Next.js architectures, optimizing build performance, and architecting scalable state management solutions (Zustand/Redux). Adept at leading cross-functional teams to deliver data-intensive dashboards and real-time visualization tools for government and financial sectors. Passionate about code quality and UI/UX excellence.
 
