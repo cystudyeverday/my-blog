@@ -13,7 +13,7 @@ datasource mydb {
   provider = "postgresql"
 }
 
-model VisiLog {
+model VisitLog {
   id        Int      @id @default(autoincrement())
   ip        String
   createdAt DateTime @default(now())
