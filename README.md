@@ -73,3 +73,12 @@ docker run --name my-postgres-prisma \
   -p 5432:5432 \
   -d postgres:15
 
+
+  ### prisma deploy
+  since i use vercel is on ipv4, not work on supabase database. can not be connect by direct url and do migration directly. therefore here i edit the db direct to init.
+
+  should connect with Connection->ORMS->prisma
+
+  use npx prisma db push to init the db
+
+
