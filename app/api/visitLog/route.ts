@@ -2,10 +2,19 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createVisitLog, getVisitLogs } from '@/lib/db/visit-log'
 
+function getRealIp(request: NextRequest): string {
+  const forwarded = request.headers.get('x-forwarded-for');
+  if (forwarded) {
+    return forwarded.split(',')[0].trim();
+  }
+  return request.headers.get('x-real-ip') ?? request.headers.get('cf-connecting-ip') ?? '127.0.0.1';
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { ip, userAgent, path } = body;
+    const { userAgent, path } = body;
+    const ip = getRealIp(request);
     await createVisitLog(ip, userAgent, path);
     return NextResponse.json(
       {

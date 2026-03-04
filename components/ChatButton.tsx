@@ -12,7 +12,7 @@ export default function ChatButton() {
     const userAgent = navigator.userAgent;
     fetch('/api/visitLog', {
       method: 'POST',
-      body: JSON.stringify({ ip: '127.0.0.1', userAgent, path: pathname }),
+      body: JSON.stringify({ userAgent, path: pathname }),
     });
   }, [pathname]);
 
